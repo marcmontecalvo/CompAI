@@ -48,3 +48,42 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+
+  db:
+    image: postgres:15
+    container_name: comp_db
+    environment:
+      POSTGRES_DB: comp
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./packages/db/data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  trigger:
+    image: triggerdev/trigger.dev:latest
+    container_name: comp_trigger
+    environment:
+      TRIGGER_PROJECT_ID: your_trigger_project_id
+    volumes:
+      - ./apps/app/trigger.config.ts:/app/trigger.config.ts
+    ports:
+      - "8090:8090"
+
+  kv:
+    image: upstash/upstash-redis:latest
+    container_name: comp_kv
+    environment:
+      UPSTASH_REDIS_URL: your_redis_url
+      UPSTASH_REDIS_TOKEN: your_redis_token
+    ports:
+      - "6379:6379"
+
+  ui:
+    build: ./packages/ui
+    container_name: comp_ui
+    volumes:
+      - ./packages/ui:/app
+    ports:
+      - "4200:4200"
