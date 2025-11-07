@@ -1,0 +1,78 @@
+requirement,mapped_controls,control_count
+ 164.306(a.4) General Rules,Workforce Security & Sanction Policy,1
+ 164.306(b.1) General Rules,HIPAA Security Evaluation & Risk Assessment,1
+ 164.306(b.2) General Rules,HIPAA Security Evaluation & Risk Assessment,1
+ 164.306(c) General Rules,HIPAA Security Evaluation & Risk Assessment,1
+ 164.306(d.1) General Rules,HIPAA Addressable Specification Assessment,1
+ 164.306(d.2) General Rules,HIPAA Addressable Specification Assessment,1
+ 164.306(d.3) General Rules,HIPAA Addressable Specification Assessment,1
+ 164.306(e) General Rules,HIPAA Security Evaluation & Risk Assessment,1
+ 164.308(a.1.i) Administrative safeguards,HIPAA Security Evaluation & Risk Assessment,1
+ 164.308(a.1.ii.A) Administrative safeguards,HIPAA Security Evaluation & Risk Assessment,1
+ 164.308(a.1.ii.B) Administrative safeguards,HIPAA Security Evaluation & Risk Assessment,1
+ 164.308(a.1.ii.C) Administrative safeguards,Workforce Security & Sanction Policy,1
+ 164.308(a.1.ii.D) Administrative safeguards,PHI Access Logs & Audit Controls | Security Monitoring & Detection,2
+ 164.308(a.2) Administrative safeguards,HIPAA Security Officer & Assigned Responsibility,1
+ 164.308(a.3.i) Administrative safeguards,Access Rights | Workforce Security & Sanction Policy,2
+ 164.308(a.3.ii.A) Administrative safeguards,Access Rights | Workforce Security & Sanction Policy,2
+ 164.308(a.3.ii.B) Administrative safeguards,Workforce Security & Sanction Policy,1
+ 164.308(a.3.ii.C) Administrative safeguards,Workforce Security & Sanction Policy,1
+ 164.308(a.4.i) Administrative safeguards,Access Rights | Emergency Access Procedures for ePHI,2
+ 164.308(a.4.ii.A) Administrative safeguards,ePHI Access Authorization & Role-Based Controls,1
+ 164.308(a.4.ii.B) Administrative safeguards,Access Rights | ePHI Access Authorization & Role-Based Controls,2
+ 164.308(a.4.ii.C) Administrative safeguards,Access Rights | ePHI Access Authorization & Role-Based Controls,2
+ 164.308(a.5.i) Administrative safeguards,HIPAA Security Awareness & Workforce Training,1
+ 164.308(a.5.ii.A) Administrative safeguards,HIPAA Security Awareness & Workforce Training,1
+ 164.308(a.5.ii.B) Administrative safeguards,Endpoint Protection | HIPAA Security Awareness & Workforce Training,2
+ 164.308(a.5.ii.C) Administrative safeguards,HIPAA Security Awareness & Workforce Training,1
+ 164.308(a.5.ii.D) Administrative safeguards,HIPAA Security Awareness & Workforce Training,1
+ 164.308(a.6.i) Administrative safeguards,Security Incident Management | Security Incident Response & HIPAA Breach Notification,2
+ 164.308(a.6.ii) Administrative safeguards,Security Incident Management | Security Incident Response & HIPAA Breach Notification,2
+ 164.308(a.7.i) Administrative safeguards,Disaster Recovery Planning | ePHI Data Backup & Media Management,2
+ 164.308(a.7.ii.A) Administrative safeguards,Disaster Recovery Planning | ePHI Data Backup & Media Management,2
+ 164.308(a.7.ii.B) Administrative safeguards,Disaster Recovery Planning | Emergency Mode Operations & ePHI Availability,2
+ 164.308(a.7.ii.c) Administrative safeguards,Disaster Recovery Planning,1
+ 164.308(a.7.ii.D) Administrative safeguards,Contingency Plan Testing & Revision,1
+ 164.308(a.7.ii.E) Administrative safeguards,Emergency Mode Operations & ePHI Availability,1
+ 164.308(a.8) Administrative safeguards,HIPAA Security Evaluation & Risk Assessment,1
+ 164.308(b.1) Administrative safeguards,Business Associate Agreements (BAA) Management,1
+ 164.308(b.2) Administrative safeguards,Business Associate Agreements (BAA) Management,1
+ 164.308(b.3) Administrative safeguards,Business Associate Agreements (BAA) Management,1
+ 164.310(a.1) Physical Safeguards,Physical Facility Access Controls for ePHI,1
+ 164.310(a.2.iii) Physical Safeguards,Physical Facility Access Controls for ePHI,1
+ 164.310(a.2.ii) Physical Safeguards,Physical Facility Access Controls for ePHI,1
+ 164.310(a.2.i) Physical Safeguards,Physical Facility Access Controls for ePHI,1
+ 164.310(a.2.iv) Physical Safeguards,Physical Facility Access Controls for ePHI,1
+ 164.310(b) Physical Safeguards,Endpoint Protection | Physical Facility Access Controls for ePHI,2
+ 164.310(c) Physical Safeguards,Endpoint Protection | Workstation & Device Security for ePHI,2
+ 164.310(d.1.iii) Physical Safeguards,Asset Inventory,1
+ 164.310(d.1.ii) Physical Safeguards,ePHI Data Backup & Media Management,1
+ 164.310(d.1.i) Physical Safeguards,ePHI Data Backup & Media Management,1
+ 164.310(d.1.iv) Physical Safeguards,ePHI Data Backup & Media Management,1
+ 164.310(d.1) Physical Safeguards,Asset Inventory | Workstation & Device Security for ePHI,2
+ 164.312(a.1) Technical Safeguards,Access Rights | ePHI Access Authorization & Role-Based Controls,2
+ 164.312(a.2.iii) Technical Safeguards,Automatic Session Logoff for ePHI Systems | Endpoint Protection,2
+ 164.312(a.2.ii) Technical Safeguards,Credential Management | Emergency Access Procedures for ePHI,2
+ 164.312(a.2.i) Technical Safeguards,Credential Management | Encryption Key Management | Secure Data Transfer | Unique User Identification & Authentication for ePHI Access,4
+ 164.312(a.2.iv) Technical Safeguards,Encryption Key Management | ePHI Encryption at Rest and In Transit,2
+ 164.312(b) Technical Safeguards,PHI Access Logs & Audit Controls | Security Monitoring & Detection,2
+ 164.312(c.1) Technical Safeguards,Change management | ePHI Integrity Controls,2
+ 164.312(c.2) Technical Safeguards,Security Monitoring & Detection,1
+ 164.312(d) Technical Safeguards,Credential Management | PHI Access Logs & Audit Controls | Unique User Identification & Authentication for ePHI Access,3
+ 164.312(e.1) Technical Safeguards,Secure Data Transfer,1
+ 164.312(e.2.ii) Technical Safeguards,ePHI Encryption at Rest and In Transit | Secure Data Transfer,2
+ 164.312(e.2.i) Technical Safeguards,ePHI Integrity Controls,1
+ 164.314(a.1) Organizational requirements.,Business Associate Agreements (BAA) Management,1
+ 164.314(a.2.iii) Organizational requirements.,Business Associate Agreements (BAA) Management,1
+ 164.314(a.2.ii) Organizational requirements.,Business Associate Agreements (BAA) Management,1
+ 164.314(a.2.i) Organizational requirements.,Business Associate Agreements (BAA) Management | Security Incident Response & HIPAA Breach Notification,2
+ 164.314(b.1) Organizational requirements.,Business Associate Agreements (BAA) Management,1
+ 164.314(b.2) Organizational requirements.,Group Health Plan ePHI Safeguards,1
+ 164.316(a) Policies and procedures and documentation requirements.,HIPAA Policies & Procedures Documentation | Policy Compliance,2
+ 164.316(b.1) Policies and procedures and documentation requirements.,HIPAA Policies & Procedures Documentation,1
+ 164.316(b.2.iii) Policies and procedures and documentation requirements.,HIPAA Policies & Procedures Documentation | Policy Compliance,2
+ 164.316(b.2.ii) Policies and procedures and documentation requirements.,HIPAA Policies & Procedures Documentation | Policy Compliance,2
+164.306(a.2)  General Rules,HIPAA Security Evaluation & Risk Assessment,1
+164.306(a.3)  General Rules,HIPAA Security Evaluation & Risk Assessment,1
+164.306(a.1) General Rules,HIPAA Security Evaluation & Risk Assessment,1
+164.316(b.2.i) Policies and procedures and documentation requirements.,HIPAA Policies & Procedures Documentation,1

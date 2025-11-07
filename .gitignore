@@ -84,3 +84,20 @@ packages/*/dist
 
 # Release script
 scripts/sync-release-branch.sh
+
+# PostgreSQL database data files (local Docker volumes)
+packages/db/data/base/
+packages/db/data/global/
+packages/db/data/pg_*
+packages/db/data/postgresql.auto.conf
+packages/db/data/postgresql.conf
+packages/db/data/postmaster.opts
+packages/db/data/postmaster.pid
+packages/db/data/PG_VERSION
+
+# Claude Code configuration and artifacts
+.claude/
+
+# Browser debugging artifacts
+*.har
+chromewebdata*.har
