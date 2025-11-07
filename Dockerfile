@@ -91,6 +91,9 @@ ENV NEXT_PUBLIC_BETTER_AUTH_URL=$NEXT_PUBLIC_BETTER_AUTH_URL \
     NEXT_OUTPUT_STANDALONE=true \
     NODE_OPTIONS=--max_old_space_size=6144
 
+# Symlink node_modules for app module resolution
+RUN rm -rf /app/apps/app/node_modules && ln -s /app/node_modules /app/apps/app/node_modules
+
 # Build the app (schema already combined above)
 RUN cd apps/app && SKIP_ENV_VALIDATION=true bun run build:docker
 
@@ -134,6 +137,9 @@ ENV NEXT_PUBLIC_BETTER_AUTH_URL=$NEXT_PUBLIC_BETTER_AUTH_URL \
     NEXT_TELEMETRY_DISABLED=1 NODE_ENV=production \
     NEXT_OUTPUT_STANDALONE=true \
     NODE_OPTIONS=--max_old_space_size=6144
+
+# Symlink node_modules for portal module resolution
+RUN rm -rf /app/apps/portal/node_modules && ln -s /app/node_modules /app/apps/portal/node_modules
 
 # Build the portal (schema already combined above)
 RUN cd apps/portal && SKIP_ENV_VALIDATION=true bun run build:docker

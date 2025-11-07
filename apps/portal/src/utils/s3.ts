@@ -8,25 +8,32 @@ const APP_AWS_SECRET_ACCESS_KEY = process.env.APP_AWS_SECRET_ACCESS_KEY;
 
 export const BUCKET_NAME = process.env.APP_AWS_BUCKET_NAME;
 
-if (!APP_AWS_ACCESS_KEY_ID || !APP_AWS_SECRET_ACCESS_KEY || !BUCKET_NAME || !APP_AWS_REGION) {
-  // Log the error in production environments
-  if (process.env.NODE_ENV === 'production') {
-    console.error('AWS S3 credentials or configuration missing in environment variables.');
-  } else {
-    // Throw in development for immediate feedback
-    throw new Error('AWS S3 credentials or configuration missing. Check environment variables.');
-  }
-  // Optionally, you could export a dummy/error client or null here
-  // depending on how you want consuming code to handle the missing config.
+// Create S3 client only if credentials are available
+// Otherwise export a lazy-initialized client that will error at runtime
+let _s3Client: S3Client | null = null;
+
+if (APP_AWS_ACCESS_KEY_ID && APP_AWS_SECRET_ACCESS_KEY && BUCKET_NAME && APP_AWS_REGION) {
+  _s3Client = new S3Client({
+    region: APP_AWS_REGION,
+    credentials: {
+      accessKeyId: APP_AWS_ACCESS_KEY_ID,
+      secretAccessKey: APP_AWS_SECRET_ACCESS_KEY,
+    },
+  });
+} else if (process.env.NODE_ENV === 'production') {
+  console.error('AWS S3 credentials or configuration missing in environment variables.');
+} else {
+  // In development, we still want to export a client that errors at use time, not import time
+  console.warn('AWS S3 credentials missing - S3 functionality will not work');
 }
 
-// Create a single S3 client instance
-// Add null checks or assertions if the checks above don't guarantee non-null values
-export const s3Client = new S3Client({
-  region: APP_AWS_REGION!,
-  credentials: {
-    accessKeyId: APP_AWS_ACCESS_KEY_ID!,
-    secretAccessKey: APP_AWS_SECRET_ACCESS_KEY!,
+// Export the client with a getter that provides a helpful error message
+export const s3Client = new Proxy({} as S3Client, {
+  get(_target, prop) {
+    if (!_s3Client) {
+      throw new Error('AWS S3 client not initialized. Check APP_AWS_* environment variables.');
+    }
+    return Reflect.get(_s3Client, prop);
   },
 });
 

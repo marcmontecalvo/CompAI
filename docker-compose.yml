@@ -21,6 +21,7 @@ services:
       target: app
       args:
         NEXT_PUBLIC_BETTER_AUTH_URL: ${BETTER_AUTH_URL}
+        NEXT_PUBLIC_PORTAL_URL: ${NEXT_PUBLIC_PORTAL_URL}
     ports:
       - '3000:3000'
     env_file:
@@ -61,29 +62,10 @@ services:
     ports:
       - "5432:5432"
 
-  trigger:
-    image: triggerdev/trigger.dev:latest
-    container_name: comp_trigger
+  redis:
+    image: redis:7-alpine
+    container_name: comp_redis
     environment:
-      TRIGGER_PROJECT_ID: your_trigger_project_id
-    volumes:
-      - ./apps/app/trigger.config.ts:/app/trigger.config.ts
-    ports:
-      - "8090:8090"
-
-  kv:
-    image: upstash/upstash-redis:latest
-    container_name: comp_kv
-    environment:
-      UPSTASH_REDIS_URL: your_redis_url
-      UPSTASH_REDIS_TOKEN: your_redis_token
+      REDIS_URL: localhost:6379
     ports:
       - "6379:6379"
-
-  ui:
-    build: ./packages/ui
-    container_name: comp_ui
-    volumes:
-      - ./packages/ui:/app
-    ports:
-      - "4200:4200"

@@ -100,4 +100,3 @@ packages/db/data/PG_VERSION
 
 # Browser debugging artifacts
 *.har
-chromewebdata*.har
