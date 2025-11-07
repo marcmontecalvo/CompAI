@@ -13,9 +13,19 @@ const customDomainSchema = z.object({
   domain: z.string().min(1),
 });
 
-const vercel = new Vercel({
-  bearerToken: env.VERCEL_ACCESS_TOKEN,
-});
+// Check if Vercel credentials are configured
+const isVercelConfigured = !!(
+  env.VERCEL_ACCESS_TOKEN &&
+  env.TRUST_PORTAL_PROJECT_ID &&
+  env.VERCEL_TEAM_ID
+);
+
+// Only initialize Vercel client if credentials are available
+const vercel = isVercelConfigured
+  ? new Vercel({
+      bearerToken: env.VERCEL_ACCESS_TOKEN,
+    })
+  : null;
 
 export const customDomainAction = authActionClient
   .inputSchema(customDomainSchema)
@@ -41,6 +51,38 @@ export const customDomainAction = authActionClient
 
       const domainVerified =
         currentDomain?.domain === domain ? currentDomain.domainVerified : false;
+
+      // Skip Vercel integration if not configured (local development)
+      if (!vercel) {
+        console.warn('Vercel credentials not configured, skipping Vercel domain setup');
+
+        // Just store the domain in the database for local development
+        await db.trust.upsert({
+          where: { organizationId: activeOrganizationId },
+          update: {
+            domain,
+            domainVerified: false, // Can't verify without Vercel in local dev
+            isVercelDomain: false,
+            vercelVerification: null,
+          },
+          create: {
+            organizationId: activeOrganizationId,
+            domain,
+            domainVerified: false,
+            isVercelDomain: false,
+            vercelVerification: null,
+          },
+        });
+
+        revalidatePath(`/${activeOrganizationId}/settings/trust-portal`);
+        revalidateTag(`organization_${activeOrganizationId}`);
+
+        return {
+          success: true,
+          needsVerification: true,
+          localDevMode: true,
+        };
+      }
 
       const isExistingRecord = await vercel.projects.getProjectDomains({
         idOrName: env.TRUST_PORTAL_PROJECT_ID!,

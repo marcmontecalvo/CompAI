@@ -7,6 +7,7 @@ import { ScrollArea } from '@comp/ui/scroll-area';
 import type { FrameworkEditorFramework } from '@db';
 import { PlusIcon } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import type { FrameworkInstanceWithControls } from '../types';
 import { AddFrameworkModal } from './AddFrameworkModal';
@@ -101,7 +102,10 @@ export function FrameworksOverview({
 
                 return (
                   <div key={framework.id}>
-                    <div className="flex items-start justify-between py-4 px-1">
+                    <Link
+                      href={`/${organizationId}/frameworks/${framework.id}`}
+                      className="flex items-start justify-between py-4 px-1 hover:bg-muted/50 rounded-md transition-colors cursor-pointer"
+                    >
                       <div className="flex items-start gap-3 flex-1 min-w-0">
                         <div className="flex-shrink-0 mt-1">
                           <Image
@@ -135,7 +139,7 @@ export function FrameworksOverview({
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </Link>
                     {index < frameworksWithControls.length - 1 && (
                       <div className="border-t border-muted/30" />
                     )}
